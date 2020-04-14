@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Factura</title>
+</head>
+<body>
+    <h3>El emisor</h3>
+    <p>{{ nombre_emisor }}, con CIF {{ cif_emisor }}, en {{ direccion_emisor }}, {{ poblacion_emisor }}, {{ provincia_emisor }} con código postal {{ cp_emisor }}, {{ pais_emisor }} </p>
+    <h3>con fecha {{ fecha }} factura a</h3>
+    <p>{{ nombre_cliente }}, con CIF {{ cif_cliente }}, en {{ direccion_cliente }}, {{ poblacion_cliente }}, {{ provincia_cliente }} con código postal {{ cp_cliente }}, {{ pais_cliente }} </p>
+    <p>cuyo responsable es {{ contacto_cliente }}, con e-mail {{ email_cliente }} y teléfono {{ telefono_cliente }}</p><br>
+    <table>
+    <tr>
+        <th>Concepto</th>
+        <th>Precio ud.</th>
+        <th>Uds.</th>
+        <th>Importe bruto</th>
+        <th>IVA</th>
+        <th>Importe total</th>
+    </tr>
+    <tr>
+        <th>{{concepto}}</th>
+        <th>{{pu}}</th>
+        <th>{{uds}}</th>
+        <th>{{importe_bruto}}</th>
+        <th>{{iva}}</th>
+        <th>{{importe_total}}</th>
+    </tr>
+    </table><br>
+    <h3>Dirigir consultas a</h3>
+    <p>{{ contacto_emisor }}, con e-mail {{ email_emisor }} y teléfono {{ telefono_emisor }}</p>
+</body>
+</html>

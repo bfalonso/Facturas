@@ -1,10 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Facturas</title>
+    <script>
+      function isEmpty(field)
+      {
+        return (field.value.trim().length == 0);
+      }
+
+      function check()
+      {
+            const cif_emisor = document.getElementById("cif_emisor");
+            const nombre_emisor = document.getElementById("nombre_emisor");
+            const direccion_emisor = document.getElementById("direccion_emisor");
+            const poblacion_emisor = document.getElementById("poblacion_emisor");
+            const provincia_emisor = document.getElementById("provincia_emisor");
+            const cp_emisor = document.getElementById("cp_emisor");
+            const pais_emisor = document.getElementById("pais_emisor");
+            const contacto_emisor = document.getElementById("contacto_emisor");
+            const email_emisor = document.getElementById("email_emisor");
+            const telefono_emisor = document.getElementById("telefono_emisor");
+            const cif_cliente = document.getElementById("cif_cliente");
+            const nombre_cliente = document.getElementById("nombre_cliente");
+            const direccion_cliente = document.getElementById("direccion_cliente");
+            const poblacion_cliente = document.getElementById("poblacion_cliente");
+            const provincia_cliente = document.getElementById("provincia_cliente");
+            const cp_cliente = document.getElementById("cp_cliente");
+            const pais_cliente = document.getElementById("pais_cliente");
+            const contacto_cliente = document.getElementById("contacto_cliente");
+            const email_cliente = document.getElementById("email_cliente");
+            const telefono_cliente = document.getElementById("telefono_cliente");
+            const concepto = document.getElementById("concepto");
+            const pu = document.getElementById("pu");
+            const uds = document.getElementById("uds");
+            const importe_bruto = document.getElementById("importe_bruto");
+            const iva = document.getElementById("iva");
+            const importe_total = document.getElementById("importe_total");
+
+            return (
+                !isEmpty(cif_emisor) && !isEmpty(nombre_emisor) && !isEmpty(direccion_emisor) &&
+                !isEmpty(poblacion_emisor) && !isEmpty(provincia_emisor) &&
+                !isEmpty(cp_emisor) && !isEmpty(pais_emisor) &&
+                !isEmpty(contacto_emisor) && !isEmpty(email_emisor) && !isEmpty(telefono_emisor) &&
+                !isEmpty(cif_cliente) && !isEmpty(nombre_cliente) && !isEmpty(direccion_cliente) &&
+                !isEmpty(poblacion_cliente) && !isEmpty(provincia_cliente) &&
+                !isEmpty(cp_cliente) && !isEmpty(pais_cliente) &&
+                !isEmpty(contacto_cliente) && !isEmpty(email_cliente) && !isEmpty(telefono_cliente) &&
+                !isEmpty(concepto) && !isEmpty(pu) && !isEmpty(uds) &&
+                !isEmpty(importe_bruto) && !isEmpty(iva) && !isEmpty(importe_total)
+            )
+      }
+    </script>
+
 </head>
 <body>
-    <h2>Genera tu factura</h2>
+
+    <form id="formFacturas" action="/facturar" method="post" onsubmit="return check()">
+        <h3>Datos del emisor</h3>
+        <label for="cif_emisor">CIF: </label>
+        <input type="text" id="cif_emisor" name="cif_emisor" required><br>
+        <label for="nombre_emisor">Nombre: </label>
+        <input type="text" id="nombre_emisor" name="nombre_emisor" required><br>
+        <label for="direccion_emisor">Dirección: </label>
+        <input type="text" id="direccion_emisor" name="direccion_emisor" required><br>
+        <label for="poblacion_emisor">Población: </label>
+        <input type="text" id="poblacion_emisor" name="poblacion_emisor" required><br>
+        <label for="provincia_emisor">Provincia: </label>
+        <input type="text" id="provincia_emisor" name="provincia_emisor" required><br>
+        <label for="cp_emisor">Código postal: </label>
+        <input type="text" id="cp_emisor" name="cp_emisor" required><br>
+        <label for="pais_emisor">País: </label>
+        <input type="text" id="pais_emisor" name="pais_emisor" required><br>
+        <label for="contacto_emisor">Persona de contacto: </label>
+        <input type="text" id="contacto_emisor" name="contacto_emisor" required><br>
+        <label for="email_emisor">Email: </label>
+        <input type="text" id="email_emisor" name="email_emisor" required><br>
+        <label for="telefono_emisor">Teléfono: </label>
+        <input type="text" id="telefono_emisor" name="telefono_emisor" required><br>
+
+        <h3>Datos del cliente</h3>
+        <label for="cif_cliente">CIF: </label>
+        <input type="text" id="cif_cliente" name="cif_cliente" required><br>
+        <label for="nombre_cliente">Nombre: </label>
+        <input type="text" id="nombre_cliente" name="nombre_cliente" required><br>
+        <label for="direccion_cliente">Dirección: </label>
+        <input type="text" id="direccion_cliente" name="direccion_cliente" required><br>
+        <label for="poblacion_cliente">Población: </label>
+        <input type="text" id="poblacion_cliente" name="poblacion_cliente" required><br>
+        <label for="provincia_cliente">Provincia: </label>
+        <input type="text" id="provincia_cliente" name="provincia_cliente" required><br>
+        <label for="cp_cliente">Código postal: </label>
+        <input type="text" id="cp_cliente" name="cp_cliente" required><br>
+        <label for="pais_cliente">País: </label>
+        <input type="text" id="pais_cliente" name="pais_cliente" required><br>
+        <label for="contacto_cliente">Persona de contacto: </label>
+        <input type="text" id="contacto_cliente" name="contacto_cliente" required><br>
+        <label for="email_cliente">Email: </label>
+        <input type="text" id="email_cliente" name="email_cliente" required><br>
+        <label for="telefono_cliente">Teléfono: </label>
+        <input type="text" id="telefono_cliente" name="telefono_cliente" required><br>
+
+        <h3>Línea</h3>
+        <label for="concepto">Concepto: </label>
+        <input type="text" id="concepto" name="concepto" required><br>
+        <label for="pu">Precio/unidad: </label>
+        <input type="text" id="pu" name="pu" required><br>
+        <label for="uds">Unidades: </label>
+        <input type="text" id="uds" name="uds" required><br>
+        <label for="importe_bruto">Importe bruto: </label>
+        <input type="text" id="importe_bruto" name="importe_bruto" required><br>
+        <label for="iva">IVA a aplicar: </label>
+        <input type="text" id="iva" name="iva" required><br>
+        <label for="importe_total">Importe total: </label>
+        <input type="text" id="importe_total" name="importe_total" required><br><br>
+
+        <input type="submit" value="Generar factura">
+    </form>
 </body>
 </html>
